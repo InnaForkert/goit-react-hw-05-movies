@@ -1,11 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { NavBar, NavItem } from "./AppBar.styled";
 
 export function AppBar() {
   return (
-    <nav>
-      <NavLink to="/" end>
-        Home
-      </NavLink>
-    </nav>
+    <NavBar>
+      <NavItem to="/">Home</NavItem>
+      <NavItem to="/movies">Search</NavItem>
+    </NavBar>
   );
 }

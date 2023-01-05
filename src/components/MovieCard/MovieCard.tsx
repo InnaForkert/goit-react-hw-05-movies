@@ -14,10 +14,7 @@ export function MovieCard({
   }
 
   return (
-    <MovieCardStyled
-      to={pathname === "/" ? `/movies/${id}` : `${id}`}
-      state={{ test: "hi" }}
-    >
+    <MovieCardStyled to={pathname === "/" ? `/movies/${id}` : `${id}`}>
       <img
         src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
         alt={original_title}

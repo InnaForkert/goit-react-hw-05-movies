@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { fetchReviews } from "../../util/fetchReviews";
 import { Review } from "../../components/Review/Review";
 import { ReviewType } from "../../interfaces/review";
 import { NoReviews } from "./Reviews.styled";
 
 export default function Reviews() {
-  const { state } = useLocation();
-
+  const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetchReviews(state.id).then(setReviews);
-  }, [state.id]);
+    if (movieId) {
+      fetchReviews(movieId).then(setReviews);
+    }
+  }, [movieId]);
 
   return (
     <>

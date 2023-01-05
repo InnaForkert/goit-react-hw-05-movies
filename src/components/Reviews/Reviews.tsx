@@ -1,15 +1,27 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { fetchReviews } from "../../util/fetchReviews";
+import { Review } from "../Review/Review";
+import { ReviewType } from "../../interfaces/review";
+import { Heading } from "../../pages/Home/Home.styled";
+import { NoReviews } from "./Reviews.styled";
 
 export function Reviews() {
-  const location = useLocation();
-  console.log(location);
+  const { state } = useLocation();
+
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetchReviews("4545").then(setReviews);
+    fetchReviews(state.id).then(setReviews);
   }, []);
 
-  return <>hi</>;
+  return (
+    <>
+      {reviews.length > 0 ? (
+        reviews.map((el: ReviewType) => <Review data={el} key={el.id} />)
+      ) : (
+        <NoReviews>No reviews found 🙄</NoReviews>
+      )}
+    </>
+  );
 }

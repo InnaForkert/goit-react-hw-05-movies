@@ -50,8 +50,12 @@ export function MovieDetails() {
         <p>Released: {release_date}</p>
         <p>Average vote: {vote_average}</p>
         <p>{overview}</p>
-        <Button to="cast">Cast</Button>
-        <Button to="reviews">Reviews</Button>
+        <Button to="cast" state={{ id }}>
+          Cast
+        </Button>
+        <Button to="reviews" state={{ id }}>
+          Reviews
+        </Button>
       </MovieInfo>
       <Outlet />
     </>

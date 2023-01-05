@@ -6,6 +6,5 @@ https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`;
 
 export async function fetchTrending() {
   const data = await axios.get(URL);
-  console.log(data.data.results);
   return data.data.results;
 }

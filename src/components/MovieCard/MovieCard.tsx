@@ -8,11 +8,11 @@ export function MovieCard({
   movie: Movie;
 }) {
   const { pathname } = useLocation();
-  if (pathname === "/") {
-    id = `/movies/${id}`;
-  }
   return (
-    <MovieCardStyled to={`${id}`}>
+    <MovieCardStyled
+      to={pathname === "/" ? `/movies/${id}` : `${id}`}
+      state={{ test: "hi" }}
+    >
       <img
         src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
         alt={original_title}

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import styled from "styled-components";
 
 export const MoviePoster = styled.img`
@@ -34,4 +34,15 @@ export const Button = styled(Link)`
     color: white;
     background-color: black;
   }
+`;
+
+export const StyledOutlet = styled(Outlet)`
+  position: absolute;
+  top: 25%;
+  right: 2%;
+  width: 50%;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #000000a4;
+  color: white;
 `;

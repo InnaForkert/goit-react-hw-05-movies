@@ -1,11 +1,11 @@
 import { Outlet, useParams } from "react-router-dom";
 import { fetchDetails } from "../../util/fetchDetails";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Details } from "../../interfaces/details";
 import { Button, MovieInfo, MoviePoster } from "./MovieDetails.styled";
 import { Heading } from "../Home/Home.styled";
 
-export function MovieDetails() {
+export default function MovieDetails() {
   const [details, setDetails] = useState({} as Details);
   const { movieId: id } = useParams();
 
@@ -57,7 +57,9 @@ export function MovieDetails() {
           Reviews
         </Button>
       </MovieInfo>
-      <Outlet />
+      <Suspense>
+        <Outlet />
+      </Suspense>
     </>
   );
 }

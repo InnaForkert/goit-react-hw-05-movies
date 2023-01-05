@@ -3,10 +3,10 @@ import { fetchCast } from "../../util/fetchCast";
 import { useLocation } from "react-router-dom";
 import { NoReviews } from "../Reviews/Reviews.styled";
 import { CastType } from "../../interfaces/cast";
-import { Actor } from "../Actor/Actor";
+import { Actor } from "../../components/Actor/Actor";
 import { CastStyled } from "./Cast.styled";
 
-export function Cast() {
+export default function Cast() {
   const {
     state: { id },
   } = useLocation();

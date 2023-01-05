@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import styled from "styled-components";
 
 export const MoviePoster = styled.img`
@@ -18,7 +18,7 @@ export const MovieInfo = styled.div`
   color: white;
 `;
 
-export const Button = styled(Link)`
+export const Button = styled(NavLink)`
   display: inline-block;
   padding: 8px 20px;
   margin: 10px;
@@ -30,9 +30,11 @@ export const Button = styled(Link)`
   transition-duration: 250ms;
 
   :hover,
-  :focus {
+  :focus,
+  &.active {
     color: white;
     background-color: black;
+    box-shadow: rgba(255, 255, 255, 0.2) 0px 8px 24px;
   }
 `;
 

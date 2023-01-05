@@ -8,6 +8,11 @@ export function MovieCard({
   movie: Movie;
 }) {
   const { pathname } = useLocation();
+
+  if (!poster_path) {
+    return null;
+  }
+
   return (
     <MovieCardStyled
       to={pathname === "/" ? `/movies/${id}` : `${id}`}

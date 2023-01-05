@@ -3,7 +3,7 @@ import { Movies } from "../../components/Movies/Movies";
 import { fetchTrending } from "../../util/fetchTrending";
 import { Heading } from "./Home.styled";
 
-export function Home() {
+export default function Home() {
   const [trending, setTrending] = useState([]);
 
   useEffect(() => {

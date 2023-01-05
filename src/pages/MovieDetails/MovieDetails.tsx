@@ -1,4 +1,4 @@
-import { Link, Outlet, useParams } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 import { fetchDetails } from "../../util/fetchDetails";
 import { useEffect, useState } from "react";
 import { Details } from "../../interfaces/details";
@@ -10,13 +10,12 @@ export function MovieDetails() {
   const { movieId: id } = useParams();
 
   useEffect(() => {
-    console.log(id);
     if (id) {
       fetchDetails(id).then(setDetails);
     }
   }, [id]);
 
-  if (!details) {
+  if (!details.backdrop_path) {
     return <h1>Sorry, no information about this one!😯</h1>;
   }
   const {
@@ -29,10 +28,17 @@ export function MovieDetails() {
     release_date,
     vote_average,
   } = details;
-  const joinedGenres = genres.map((el) => el.name).join(", ");
+  let joinedGenres = "no particular genre";
+  if (genres) {
+    joinedGenres = genres.map((el) => el.name).join(", ");
+  }
   return (
     <>
       <Heading>{original_title}</Heading>
+      <MoviePoster
+        src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`}
+        alt={original_title}
+      />
       <MoviePoster
         src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
         alt={original_title}

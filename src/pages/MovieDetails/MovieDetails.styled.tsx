@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const MoviePoster = styled.img`
+  position: absolute;
+  top: 20%;
   width: 100%;
 `;
 

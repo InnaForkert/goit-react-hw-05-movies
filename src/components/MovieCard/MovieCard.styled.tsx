@@ -12,6 +12,7 @@ export const MovieCardStyled = styled(Link)`
   padding-bottom: 10px;
   background-color: black;
   color: white;
+  text-decoration: none;
 
   :hover,
   :focus {

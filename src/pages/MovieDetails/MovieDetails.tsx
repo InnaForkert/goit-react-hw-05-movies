@@ -1,8 +1,8 @@
-import { useParams } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 import { fetchDetails } from "../../util/fetchDetails";
 import { useEffect, useState } from "react";
 import { Details } from "../../interfaces/details";
-import { MovieInfo, MoviePoster } from "./MovieDetails.styled";
+import { Button, MovieInfo, MoviePoster } from "./MovieDetails.styled";
 import { Heading } from "../Home/Home.styled";
 
 export function MovieDetails() {
@@ -44,7 +44,10 @@ export function MovieDetails() {
         <p>Released: {release_date}</p>
         <p>Average vote: {vote_average}</p>
         <p>{overview}</p>
+        <Button to="cast">Cast</Button>
+        <Button to="reviews">Reviews</Button>
       </MovieInfo>
+      <Outlet />
     </>
   );
 }

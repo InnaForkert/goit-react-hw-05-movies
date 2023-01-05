@@ -14,7 +14,11 @@ export const NavItem = styled(NavLink)`
   border-radius: 10px;
   transition-property: color, background-color;
   transition-duration: 250ms;
-  :hover {
+  text-decoration: none;
+
+  &.active,
+  :hover,
+  :focus {
     color: white;
     background-color: black;
   }
